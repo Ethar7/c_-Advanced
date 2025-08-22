@@ -1,0 +1,65 @@
+using System;
+
+namespace Day01
+{
+    class Range<T> where T : IComparable<T>
+    {
+        public T Min { get; }
+        public T Max { get; }
+
+        public Range(T min, T max)
+        {
+            if (min.CompareTo(max) > 0)
+            {
+                Min = max;
+                Max = min;
+            }
+            else
+            {
+                Min = min;
+                Max = max;
+            }
+        }
+
+        public bool IsInRange(T value)
+        {
+            return Min.CompareTo(value) <= 0 && Max.CompareTo(value) >= 0;
+        }
+
+        public double Length()
+        {
+            double min = Convert.ToDouble(Min);
+            double max = Convert.ToDouble(Max);
+            return max - min;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Range<int> r1 = new Range<int>(10, 2);
+            Console.WriteLine("Range r1 from " + r1.Min + " to " + r1.Max);
+            Console.WriteLine("Length = " + r1.Length());
+            Console.WriteLine("Is 5 inside? " + r1.IsInRange(5));
+            Console.WriteLine("Is 20 inside? " + r1.IsInRange(20));
+
+            Console.WriteLine("----------------------");
+
+            Range<double> r2 = new Range<double>(1.2, 3.9);
+            Console.WriteLine("Range r2 from " + r2.Min + " to " + r2.Max);
+            Console.WriteLine("Length = " + r2.Length());
+            Console.WriteLine("Is 2.5 inside? " + r2.IsInRange(2.5));
+            Console.WriteLine("Is 0.5 inside? " + r2.IsInRange(0.5));
+
+            Console.WriteLine("----------------------");
+
+            Range<int> r3 = new Range<int>(50, 10);
+            Console.WriteLine("Range r3 from " + r3.Min + " to " + r3.Max);
+            Console.WriteLine("Length = " + r3.Length());
+            Console.WriteLine("Is 30 inside? " + r3.IsInRange(30));
+        }
+    }
+}
+
+
