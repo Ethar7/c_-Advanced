@@ -1,0 +1,584 @@
+//program2.cs
+﻿using System.Runtime.CompilerServices;
+
+namespace Day01
+{/*
+وَأَنْ لَيْسَ لِلإِنسَانِ إِلَّا مَا سَعَى وَأَنَّ سَعْيَهُ سَوْفَ يُرَى
+*/
+    class Program
+    {
+      
+        static void Swap(ref int x, ref int y)
+        {
+            int temp = x;   
+            x = y;
+            y = temp;
+
+        }
+        static void BubbleSortOptimization(int[] arr,ref int op)
+        {
+            int n = 0;
+            op++;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                n++;
+                if (arr[i] > arr[i + 1])
+                {
+                    Swap(ref arr[i], ref arr[i + 1]);
+                    n--;
+                }
+
+            }
+            if (n == arr.Length-1) return;
+            BubbleSortOptimization(arr,ref op);
+        }
+    
+        static void Main()
+        {
+
+            #region  Question1
+            //int[] arr = { 6, 8, 2, 6, 9, 10, 1, 0 };
+            //int Operations = 0;
+            //BubbleSortOptimization(arr,ref Operations);
+            //foreach (int a in arr)
+            //{
+            //    Console.Write($"{a} ");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine(Operations);
+            #endregion
+
+            #region Question2
+            //Range<int> r1 = new(1, 5);
+            //if(r1.IsInRange(0))
+            //    Console.WriteLine("1");
+            //else 
+            //    Console.WriteLine("0");
+            //
+            //Range<int> r2 = new(10, 5);
+            //Range<double> r3 = new(1.5, 5);
+            //Console.WriteLine(r3.Min);
+            //r3.Length();
+
+            #endregion
+
+
+
+        }
+    }
+}
+
+// program3.cs
+
+﻿using DemoDay01.Genarics;
+using System.Threading.Channels;
+
+namespace DemoDay01
+{ 
+    /*
+وَأَنْ لَيْسَ لِلإِنسَانِ إِلَّا مَا سَعَى وَأَنَّ سَعْيَهُ سَوْفَ يُرَى
+    */
+    class Program
+    {
+        static void Main()
+        {
+            #region Genarics [Swap Example]
+            //int a = 10;
+            //int b = 20;
+            //Console.WriteLine($"a={a}   b={b}");
+            //Helper<int>.SWAP<int>( ref a, ref b );
+            ////Genaric Type bta3 el swap method 3rf Anha of type int bs ana bktbha k Readability 
+            ////Genaric Type bta3 el class lazm Aktbha lw ana 3mlt genaric class 
+            ////Ana Lw m7tgaha 3la mostwa el methods yb2a m3mlha4 3la elclass 
+            //Console.WriteLine($"After Swaping\na={a}   b={b}");
+
+            //Point p01=new Point(1,2);
+            //Point p02=new Point(10,20);
+
+            //Helper<Point>.SWAP(ref p01,ref p02);
+            //Console.WriteLine(p01);
+            //Console.WriteLine(p02);
+            #endregion
+
+            #region Genarics [Search Example]
+
+            #region Struct
+            //int[] array = { 5, 6, 8, 9, 10, 11, 12, 0 };
+            //Console.WriteLine($"Index of 6 is {Helper<int>.SearchArray(array, 6)}");
+
+            //Employee employee1 = new Employee() { Id = 10, Name = "ALAA" , Salary = 10000 };
+            //Employee employee2 = new Employee() { Id = 20, Name = "Hajar" , Salary = 20000 };
+
+
+
+            //da fl Value Type
+            //if(employee1==employee2)
+            //    Console.WriteLine("Equal");
+            //else
+            //    Console.WriteLine("Not Equal"); 
+            //if(employee1.Equals(employee2))
+            //    Console.WriteLine("Equal");
+            //else
+            //    Console.WriteLine("Not Equal");
+
+
+            //Employee[] employee = new Employee[2]
+            //{
+            //employee1,
+            //employee2
+            //};
+            //
+            //Console.WriteLine($"Found At Index {Helper<Employee>.SearchArray(employee, employee2)}");
+
+            //Ana M2drsh Ast5dm El == fl Genarics 34an M4 Implemented fkol el datatype zy struct 
+            #endregion
+
+            #region Class
+            ////hna mmkn a compare elrefernce or object state
+            //Employee employee1 = new Employee() { Id = 10, Name = "ALAA" , Salary = 10000 };
+            //Employee employee2 = new Employee() { Id = 20, Name = "Hajar" , Salary = 20000 };
+            //Console.WriteLine($"HC employee1={employee1.GetHashCode()}");
+            //Console.WriteLine($"HC employee2={employee2.GetHashCode()}");
+
+            ////Equals -> Compares References
+            ////==     -> Compares References
+            ////if (employee1 != employee2)  
+            ////{
+            ////    Console.WriteLine("Not Equal");
+            ////}
+            ////else
+            ////{
+            ////    Console.WriteLine("Equal");
+            ////}
+            #endregion
+
+
+
+
+            #endregion
+
+            #region Genarics [Sort Example]
+            //int[] Numbers = { 12, 23,5,0,88,1,3,90 };
+
+            //foreach (int item in Numbers)
+            //{
+            //    Console.Write(item);
+            //    Console.Write(" ");
+            //}
+
+            //Console.WriteLine();
+            //Helper<int>.BubbleSort( Numbers);
+            //foreach (int item in Numbers)
+            //{
+            //    Console.Write(item);
+            //    Console.Write(" ");
+            //}
+
+
+            // Employee [] employees = new Employee[]
+            // {
+            //     new Employee() {Id=10,Name="Alaa",Salary=10000 },
+            //     new Employee() {Id=20,Name="Hajar",Salary=50000 },
+            //     new Employee() {Id=20,Name="Ahmed",Salary=30000 },
+            //     new Employee() {Id=20,Name="Aly",Salary=40000 }
+            // };
+            //
+            // Helper<Employee>.BubbleSort(employees);
+            //
+            // foreach (Employee employee in employees) 
+            // {
+            //     Console.WriteLine(employee);
+            // }
+
+
+
+            //Point[] points =
+            //{
+            //    new Point(7,3),
+            //    new Point(2,6),
+            //    new Point(6,3),
+            //    new Point(1,6),
+            //    new Point(7,2),
+            //    new Point(9,0),
+            //};
+
+
+            //Helper<Point>.BubbleSort(points);
+            //foreach(Point point in points)
+            //{
+            //    Console.WriteLine(point);
+            //}
+            #endregion
+
+            #region Constraints 
+            
+            //1-General Primary Key [0:1] 
+            // Class
+            // Struct
+            // Enum
+            // Not Null
+            //2-Special Primary Key :[USER Defined Class Except Sealed]
+            // <T>Point => T Must Be Point Or Class Inherit From Point
+            //3-Secondary Constraints (Interface Constraints) [0:M]
+            //4-Constructor Constraints[0-1]
+            // new() => T Must be has Parameterless Constructor
+
+
+
+
+            #endregion
+            
+        }
+    }
+}
+
+
+
+// ranges.cs
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Markup;
+
+namespace Day01
+{
+     class Range<T> where T: IComparable
+     {
+
+        public T Max { get; }
+
+        public T Min { get; }
+        public Range(T max, T min)
+        {
+            if (max.CompareTo(min) < 0)
+            {
+                Max = min;
+                Min = max;
+            }
+            else { 
+            Max = max;
+            Min = min;
+            }
+        }
+
+
+        public bool IsInRange(T value)
+        {
+            return Min.CompareTo(value)>=0 && Max.CompareTo(value)<=0 ;
+        }
+
+        public void Length()
+        {
+            if(typeof(T) == typeof(decimal))
+            {
+                decimal min = Convert.ToDecimal(Min);
+                decimal max = Convert.ToDecimal(Max);
+                Console.WriteLine(max - min);
+            }
+            else
+            {
+                double min = Convert.ToDouble(Min);
+                double max = Convert.ToDouble(Max);
+                Console.WriteLine(max - min);
+            }
+
+        }
+
+
+
+     }
+}
+
+//Helper.cs
+
+﻿using DemoDay01.Genarics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DemoDay01
+{
+    //In case  genaric Type <T> Is DECLARED On  Class , Struct , Interface  
+    //Compiler Cannot detect the type of T 
+    class Helper<T> where T:IComparable<T>
+    {
+        //public static T Sum (T x , T y)
+        //{
+        //    return x + y;//Invalid
+        //}
+
+
+
+
+        //T must implement I compareble Interface
+        //T Salary { get; set; }//Invalied
+
+        #region NON Genarics
+        //public static void SWAP(ref int x,ref int y)
+        //{
+
+        //    int temp = x;
+        //    x = y;
+        //    y = temp;
+        //}
+
+        //public static void SWAP(ref double x, ref double y)
+        //{
+
+        //    double temp = x;
+        //    x = y;
+        //    y = temp;
+        //}
+
+        //public static void SWAP(ref Point x, ref Point y)
+        //{
+
+        //    Point temp = x;
+        //    x = y;
+        //    y = temp;
+        //} 
+
+
+        //public static int SearchArray(int[] array, int value)
+        //{
+        //    if (array != null)
+        //    {
+        //        for (int i = 0; i < array.Length; i++)
+        //        {
+        //            if(value == array[i])  
+        //                return ++i;
+        //        }
+        //    }
+        //    return -1;
+        //}
+
+
+        //public static void BubbleSort( int[]  arr)
+        //{
+        //    if(arr is not null)
+        //    {
+        //        for(int i = 0; i < arr.Length; i++)
+        //        {
+        //            for (int j = 0; j < arr.Length - i -1;j++)
+        //            {
+        //                if (arr[j] > arr[j + 1])
+        //                    Helper.swap<int>(ref arr[j], ref arr[j + 1]);
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+
+        #endregion
+
+        #region Genarics
+        //T =>Genaric Type
+        //Swap => Genaric Method
+        //In case  genaric Type <T> Is DECLARED On Methods Level , Not Class , Struct , Interface  
+        //Compiler Can detect the type of T based on passed parameters
+
+
+        public static void swap(ref T x, ref T y)
+        {
+            T temp = x;
+            x = y;
+            y = temp;
+        }
+
+        //public static int SearchArray<T>(T[] array, T value)
+        //{
+        //    if (array != null)
+        //    {
+        //        for (int i = 0; i < array.Length; i++)
+        //        {
+        //            if (value.Equals(array[i]))
+        //                return ++i;
+        //        }
+        //    }
+        //    return -1;
+
+
+        public static void BubbleSort(T[] arr)   
+        {
+            // Another Way BubbleSort<T>(T[] arr) : Where T :IComparable
+            // fe Tre2a Tanya bs F class Employee An el Class E iMPLEMENT IComparable 3LA Tol w yro7 Y IMPLEMENT Function CompareTo
+
+
+            if (arr is not null)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    for (int j = 0; j < arr.Length - i - 1; j++)
+                    {
+                        if (arr[j].CompareTo(arr[j+1]) == 1)//arr[j] > arr[j + 1]
+                            swap(ref arr[j], ref arr[j + 1]);
+                    }
+                }
+            }
+        }
+
+       
+    #endregion
+
+
+
+
+
+    }
+}
+
+
+// Employee.cs
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DemoDay01.Genarics
+{
+    class Employee : IComparable
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public double Salary { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID = {Id}    NAME = {Name}   SALARY = {Salary} ";
+        }
+
+
+        public override bool Equals(object? obj)
+        {
+            Employee? right = (Employee?)obj;//Explicit Casting -- Unsafe  -- May Throe Exception 
+            //Logic Any A3ml override on gethash code too
+            return (this.Id == right?.Id) && (this.Name == right?.Name) && (this.Salary == right?.Salary);
+        }
+
+        public override int GetHashCode()
+        {
+            //{ Id = 10, Name = "ALAA" , Salary = 10000 };
+            //{ Id = 20, Name = "Hajar" , Salary = 20000 };
+
+            /*
+            return this.Id.GetHashCode()+this.Name?.GetHashCode()??0+this.Salary.GetHashCode();
+            
+             d = 10, Name = "ALAA" , Salary = 10000 
+             d = 10000, Name = "ALAA" , Salary = 10
+              Da Ydeny nfs El HAsh Code 
+             */
+
+            return HashCode.Combine(Id.GetHashCode(),Name.GetHashCode(),Salary.GetHashCode());
+            //Comnbine Bt Add Number 3la Kol State 
+            //fa Ana Bst5dmha to Avoid Conflict
+         }
+
+        public int CompareTo(object ? obj)
+        {
+            //Employee? right = (Employee?)obj; //Unsafe Casting May Throw Exception
+            // We Say Hundred Times AN 7Lha Any Ast5dm El Grnaric == > ICompareable<Employee> 
+            //return this.Salary.CompareTo(right?.Salary);
+
+            #region Is Conditional Operator [True False]
+            //This Operator Will Return True In 2 Cases
+            //1. obj Is A Employee
+            //2. obj Is an OBJECT From Class Inherits From Employee
+            //if(obj is Employee right)
+            //{
+                ////this 3omrha ma htb'a null 34an kda ana t7t h return 1
+                //return this .Salary.CompareTo(right.Salary);
+            //}
+
+            //return 1;
+            #endregion
+
+
+            #region As Casting Operator
+
+            Employee ? right =obj as Employee;
+            //Casting Succeded In 2 Cases
+            //1. obj Is A Employee
+            //2. obj Is an OBJECT From Class Inherits From Employee#endregion
+
+            //if Failed Return Null  => 0 Exception Will Be THrown
+            return this.Salary.CompareTo(right?.Salary);
+            #endregion
+
+
+
+        }
+        #region Operator Overloading
+
+        public static bool operator ==(Employee left, Employee right)
+        {
+            return (left.Id == right.Id) && (left.Name == right.Name) && (left.Salary == right.Salary);
+        }
+
+        public static bool operator !=(Employee left, Employee right)
+        {
+            return (left.Id != right.Id) && (left.Name != right.Name) && (left.Salary != right.Salary);
+        }
+
+
+        #endregion
+    }
+}
+
+// point.cs
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DemoDay01.Genarics
+{
+    internal class Point :/*IComparable*/ IComparable<Point>
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+        public Point(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"x={x}  y={y}";
+        }
+
+        public int CompareTo(Point? other)
+        {
+            if(other == null) return 1 ;
+            if(x==other.x ) 
+                return y.CompareTo(other.y);
+            else
+                return x.CompareTo(other.x);
+        }
+
+        //public int CompareTo(object? obj)
+        //{
+        //    if(obj is Point p)
+        //    { 
+        //       if(this.x==p.x)
+        //            return this.y.CompareTo(p.y);
+        //       else
+        //            return this.x.CompareTo(p.x);
+
+        //    }
+        //    return 1;
+        //}
+    }
+}
+
