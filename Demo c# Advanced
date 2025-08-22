@@ -48,21 +48,6 @@ namespace Day01
             //Console.WriteLine(Operations);
             #endregion
 
-            #region Question2
-            //Range<int> r1 = new(1, 5);
-            //if(r1.IsInRange(0))
-            //    Console.WriteLine("1");
-            //else 
-            //    Console.WriteLine("0");
-            //
-            //Range<int> r2 = new(10, 5);
-            //Range<double> r3 = new(1.5, 5);
-            //Console.WriteLine(r3.Min);
-            //r3.Length();
-
-            #endregion
-
-
 
         }
     }
@@ -232,65 +217,6 @@ namespace DemoDay01
     }
 }
 
-
-
-// ranges.cs
-
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Markup;
-
-namespace Day01
-{
-     class Range<T> where T: IComparable
-     {
-
-        public T Max { get; }
-
-        public T Min { get; }
-        public Range(T max, T min)
-        {
-            if (max.CompareTo(min) < 0)
-            {
-                Max = min;
-                Min = max;
-            }
-            else { 
-            Max = max;
-            Min = min;
-            }
-        }
-
-
-        public bool IsInRange(T value)
-        {
-            return Min.CompareTo(value)>=0 && Max.CompareTo(value)<=0 ;
-        }
-
-        public void Length()
-        {
-            if(typeof(T) == typeof(decimal))
-            {
-                decimal min = Convert.ToDecimal(Min);
-                decimal max = Convert.ToDecimal(Max);
-                Console.WriteLine(max - min);
-            }
-            else
-            {
-                double min = Convert.ToDouble(Min);
-                double max = Convert.ToDouble(Max);
-                Console.WriteLine(max - min);
-            }
-
-        }
-
-
-
-     }
-}
 
 //Helper.cs
 
